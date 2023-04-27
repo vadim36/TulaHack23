@@ -1,0 +1,28 @@
+.wrapper-mainPage{
+  padding: 20px;
+
+  .header{
+    box-shadow: -1px 16px 26px 0px rgba(34, 60, 80, 0.2);
+
+    border-radius: 10px;
+
+    .form-search__button-search{
+      position: relative;
+      &:active{
+        top: 2px;
+      }
+    }
+
+    .nav-item,
+    .header__title{
+      transition: 0.4s ease-in-out;
+      &:hover{
+        transform: scale(1.1);
+      }
+    }
+
+    .nav-item{
+      font-size: 1.3rem;
+    }
+  }
+}
