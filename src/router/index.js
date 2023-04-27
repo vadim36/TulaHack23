@@ -1,12 +1,54 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import StartMenu from '@/./views/StartMenu.vue';
+import MainLayout from "@/views/MainLayout.vue";
+/*import Contacts from "@/views/Contacts.vue";
+import Settings from "@/views/Settings.vue";
+import Account from "@/views/Account.vue";
+import Login from "@/views/Login.vue";
+import Registration from "@/views/Registration.vue";
+import Tape from "@/views/Tape.vue";*/
 
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: HomeView
-  }
+    name: 'Start Menu',
+    component: StartMenu
+  },
+  {
+    path: '/home',
+    name: 'main page',
+    component: MainLayout
+  },
+  /*{
+    path: '/contacts',
+    name: 'contacts page',
+    component: Contacts
+  },
+  {
+    path: '/settings',
+    name: 'settings page',
+    component: Settings
+  },
+  {
+    path: '/personalAccount',
+    name: 'personalAccount page',
+    component: Account
+  },
+  {
+    path: '/login',
+    name: 'login page',
+    component: Login
+  },
+  {
+    path: '/register',
+    name: 'register page',
+    component: Registration
+  },
+  {
+    path: '/tape',
+    name: 'tape page',
+    component: Tape
+  },*/
 ]
 
 const router = createRouter({
