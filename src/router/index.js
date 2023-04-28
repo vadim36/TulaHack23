@@ -6,7 +6,6 @@ import Settings from "@/views/Settings.vue";
 import Account from "@/views/Account.vue";
 import Login from "@/views/Login.vue";
 import Registration from "@/views/Registration.vue";
-import Tape from "@/views/Tape.vue";
 
 const routes = [
   {
@@ -46,12 +45,6 @@ const routes = [
       },
     ]
   },
-/*
-  {
-    path: '/tape',
-    name: 'tape page',
-    component: Tape
-  },*/
 ]
 
 const router = createRouter({

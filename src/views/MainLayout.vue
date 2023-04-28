@@ -14,8 +14,7 @@
                           <router-link to="/settings" class="nav-link active" aria-current="page">Настройки</router-link>
                       </li>
                       <li class="nav-item">
-                          <!--TODO: убрать это-->
-                          <router-link to="/register" class="nav-link active" aria-current="page">Личный Аккаунт</router-link>
+                          <router-link to="/personalAccount" class="nav-link active" aria-current="page">Личный Аккаунт</router-link>
                       </li>
                   </ul>
               </nav>
@@ -27,10 +26,16 @@
         </header>
         <router-view/>
     </div>
+
+    <Tape v-if="$route.path === '/home'"/>
 </template>
 <script>
+import Tape from '@/components/Tape.vue';
 export default {
-    name: 'Main page'
+    name: 'Main page',
+    components: {
+        Tape
+    }
 }
 </script>
 <style>
