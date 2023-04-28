@@ -1,6 +1,9 @@
 .wrapper-mainPage{
   padding: 20px;
 
+  display: flex;
+  flex-direction: column;
+
   .header{
     box-shadow: -1px 16px 26px 0px rgba(34, 60, 80, 0.2);
 

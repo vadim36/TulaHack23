@@ -2,21 +2,20 @@
     <div class="wrapper-mainPage">
         <header class="header navbar navbar-expand-lg bg-body-tertiary">
           <div class="container-fluid">
-              <!--TODO:Добавить лого-->
               <router-link to="/home" class="navbar-brand">
                   <h2 class="header__title">Жены героев</h2>
               </router-link>
               <nav class="header__nav nav">
                   <ul class="nav__list navbar-nav me-auto mb-2 mb-lg-0">
-                      <!--TODO:ссылки-->
                       <li class="nav-item">
-                          <router-link to="" class="nav-link active" aria-current="page">Контакты</router-link>
+                          <router-link to="/contacts" class="nav-link active" aria-current="page">Контакты</router-link>
                       </li>
                       <li class="nav-item">
-                          <router-link to="" class="nav-link active" aria-current="page">Настройки</router-link>
+                          <router-link to="/settings" class="nav-link active" aria-current="page">Настройки</router-link>
                       </li>
                       <li class="nav-item">
-                          <router-link to="" class="nav-link active" aria-current="page">Личный Аккаунт</router-link>
+                          <!--TODO: убрать это-->
+                          <router-link to="/register" class="nav-link active" aria-current="page">Личный Аккаунт</router-link>
                       </li>
                   </ul>
               </nav>

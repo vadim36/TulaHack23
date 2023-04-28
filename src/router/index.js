@@ -1,12 +1,12 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import StartMenu from '@/./views/StartMenu.vue';
 import MainLayout from "@/views/MainLayout.vue";
-/*import Contacts from "@/views/Contacts.vue";
+import Contacts from "@/views/Contacts.vue";
 import Settings from "@/views/Settings.vue";
 import Account from "@/views/Account.vue";
 import Login from "@/views/Login.vue";
 import Registration from "@/views/Registration.vue";
-import Tape from "@/views/Tape.vue";*/
+import Tape from "@/views/Tape.vue";
 
 const routes = [
   {
@@ -17,33 +17,36 @@ const routes = [
   {
     path: '/home',
     name: 'main page',
-    component: MainLayout
+    component: MainLayout,
+    children: [
+      {
+        path: '/contacts',
+        name: 'contacts page',
+        component: Contacts
+      },
+      {
+        path: '/settings',
+        name: 'settings page',
+        component: Settings
+      },
+      {
+        path: '/personalAccount',
+        name: 'personalAccount page',
+        component: Account
+      },
+      {
+        path: '/login',
+        name: 'login page',
+        component: Login
+      },
+      {
+        path: '/register',
+        name: 'register page',
+        component: Registration
+      },
+    ]
   },
-  /*{
-    path: '/contacts',
-    name: 'contacts page',
-    component: Contacts
-  },
-  {
-    path: '/settings',
-    name: 'settings page',
-    component: Settings
-  },
-  {
-    path: '/personalAccount',
-    name: 'personalAccount page',
-    component: Account
-  },
-  {
-    path: '/login',
-    name: 'login page',
-    component: Login
-  },
-  {
-    path: '/register',
-    name: 'register page',
-    component: Registration
-  },
+/*
   {
     path: '/tape',
     name: 'tape page',
