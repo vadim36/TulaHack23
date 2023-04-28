@@ -19,6 +19,7 @@
     </div>
 </template>
 <script>
+
 </script>
 <style>
 @import "@/assets/style/views/RegisterPage_view.scss";
