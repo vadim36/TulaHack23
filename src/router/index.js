@@ -6,6 +6,7 @@ import Settings from "@/views/Settings.vue";
 import Account from "@/views/Account.vue";
 import Login from "@/views/Login.vue";
 import Registration from "@/views/Registration.vue";
+import MakePost from "@/views/MakePost.vue";
 
 const routes = [
   {
@@ -44,6 +45,11 @@ const routes = [
         component: Registration
       },
     ]
+  },
+  {
+    path: '/makePost',
+    name: 'make post page',
+    component: MakePost
   },
 ]
 

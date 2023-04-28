@@ -1,0 +1,110 @@
+.wrapper-makingPost{
+  width: 100%;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  .header{
+    width: 100%;
+
+    border-bottom: 1px solid #000;
+
+    padding: 10px;
+
+    display: flex;
+    align-items: center;
+
+    .title{
+      text-align: center;
+      font-size: 4rem;
+
+      margin-left: 130px;
+    }
+
+    .button-reverse{
+      width: 150px;
+      height: 40px;
+
+      font-size: 1.3rem;
+
+      position: relative;
+      &:active{
+        top: 2px;
+      }
+    }
+  }
+
+  .card-newPost{
+    width: 70%;
+    height: 80%;
+
+    box-shadow: -1px 2px 30px 9px rgba(34, 60, 80, 0.2);
+    border-radius: 12px;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 15px;
+    margin-top: 15px;
+
+    .card-newPost__label-name{
+      font-size: 2.2rem;
+
+      padding: 10px;
+    }
+
+    .card-newPost__field-name{
+      width: 40%;
+    }
+
+    .card-newPost__label-file{
+      font-size: 1.7rem;
+
+      padding: 10px;
+    }
+
+    .card-newPost__field-file{
+      display: block;
+
+      font-size: 1.3rem;
+
+      margin-top: 7px;
+    }
+
+    .card-newPost__label-description{
+      font-size: 1.7rem;
+
+      padding: 10px;
+
+      display: flex;
+      flex-direction: column;
+
+      align-items: center;
+    }
+
+    .card-newPost__field-description{
+      width: 70%;
+
+      margin-top: 7px;
+    }
+
+    .card-newPost__submit-button{
+      width: 30%;
+      height: 50px;
+
+      margin-top: 30px;
+
+      align-self: center;
+
+      font-size: 1.7rem;
+
+      position: relative;
+      &:active{
+        top: 2px;
+      }
+    }
+  }
+}
