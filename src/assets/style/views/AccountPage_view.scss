@@ -8,6 +8,8 @@
 
   min-height: 100%;
 
+  border-bottom: 1px solid #000;
+
   .card-account__title{
     grid-area: title;
 
@@ -107,6 +109,18 @@
         &:active{
           top: 10px;
         }
+      }
+    }
+    .posts-card__container-posts{
+      width: 100%;
+
+      display: flex;
+      flex-direction: column;
+
+      align-items: center;
+
+      .card-post + .card-post {
+        margin-top: 20px;
       }
     }
   }

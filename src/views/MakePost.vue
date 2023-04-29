@@ -19,21 +19,29 @@
             <label for="makingDescription" class="card-newPost__label-description">
                 Напишите описание(опционально):
                 <textarea v-model="description" cols="10" rows="8" name="makingDescription"
-                    class="form-control card-newPost__field-description"></textarea>
+                          class="form-control card-newPost__field-description"></textarea>
             </label>
             <input type="submit" name="submitButton" class="card-newPost__submit-button btn btn-primary"
-                @click.prevent="$event">
+                   v-on:click.prevent="makePost">
         </form>
     </div>
 </template>
 <script>
+import router from "@/router";
+
 export default {
-    data(){
+    data() {
         return {
             name: '',
             description: ''
         }
     },
+    methods: {
+        makePost() {
+            const makingPostFormElement = document.querySelector('.card-newPost');
+            makingPostFormElement.submit();
+        }
+    }
 }
 </script>
 <style>

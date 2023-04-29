@@ -14,7 +14,7 @@
                           <router-link to="/settings" class="nav-link active" aria-current="page">Настройки</router-link>
                       </li>
                       <li class="nav-item">
-                          <router-link to="/personalAccount" class="nav-link active" aria-current="page">Личный Аккаунт</router-link>
+                          <router-link to="/register" class="nav-link active" aria-current="page">Личный Аккаунт</router-link>
                       </li>
                   </ul>
               </nav>

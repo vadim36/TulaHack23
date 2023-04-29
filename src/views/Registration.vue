@@ -339,12 +339,19 @@
                 <option value="Ярославль">Ярославль</option>
             </select>
             <input type="submit" class="form-register__submit-button btn btn-primary"
-                   name="submitForm" @click.prevent="$event">
+                   name="submitForm" v-on:click.prevent="submitForm">
         </form>
     </div>
 </template>
 <script>
-
+export default {
+    methods: {
+        submitForm(){
+            const registrationForm = document.querySelector('.card-register__form-register');
+            registrationForm.submit();
+        }
+    }
+}
 </script>
 <style>
 @import "@/assets/style/views/RegisterPage_view.scss";

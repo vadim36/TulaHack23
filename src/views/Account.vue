@@ -18,11 +18,22 @@
                   <button type="button" class="posts-card__button-add btn btn-outline-success">Создать новый пост</button>
               </router-link>
           </div>
+          <div class="posts-card__container-posts">
+              <NewPost/>
+              <NewPost/>
+              <NewPost/>
+              <NewPost/>
+              <NewPost/>
+          </div>
       </div>
   </div>
 </template>
 <script>
+import NewPost from "@/components/NewPost.vue";
 export default {
+    components: {
+        NewPost
+    },
     methods: {
         editAccount() {
             /*const profileImageElement = document.querySelector('.profile-card__image');
