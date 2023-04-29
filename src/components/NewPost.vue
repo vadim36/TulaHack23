@@ -10,10 +10,10 @@
             voluptatum.</p>
         <div class="card-post__control-container">
             <button type="button" class="card-post__button-like btn btn-outline-danger"
-                    @click.once="likePost"> {{likes}} Нравится
+                    v-on:click.once="likePost" v-on:dblclick.once="removeLikePost"> {{likes}} Нравится
             </button>
             <button type="button" class="btn btn-outline-primary"
-                @click="showComments">Комментарии</button>
+                v-on:click="showComments">Комментарии</button>
             <div class="card-post__container-comments" id="comments">
                 Комментарии
             </div>
@@ -38,6 +38,13 @@ export default {
         showComments() {
             const commentsContainer = document.querySelector('.card-post__container-comments');
             commentsContainer.classList.toggle('show');
+        },
+        removeLikePost(){
+            this.likes -= 1;
+
+            const likeButton = document.querySelector('.card-post__button-like');
+            likeButton.classList.remove('btn-danger');
+            likeButton.classList.add('btn-outline-danger');
         }
     }
 }

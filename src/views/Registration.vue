@@ -395,8 +395,8 @@ export default {
 
             if (this.nameError === null && this.emailError === null
                 && this.passwordError === null && this.passwordRepeatError === null) {
+                //$route.push('/home');
                 registrationForm.submit();
-                window.location.href = 'http://localhost:8080/#/home'
             }
         }
     }

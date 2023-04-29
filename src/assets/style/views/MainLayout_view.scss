@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'Christopher';
+  src: local('Christopher'), url("../../fonts/Christopher.otf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
 .wrapper-mainPage{
   padding: 20px;
 
@@ -19,6 +26,7 @@
     .nav-item,
     .header__title{
       transition: 0.4s ease-in-out;
+
       &:hover{
         transform: scale(1.1);
       }
@@ -26,6 +34,29 @@
 
     .nav-item{
       font-size: 1.3rem;
+      font-family: Inter, sans-serif;
     }
+
+    .nav-item + .nav-item{
+      margin-left: 105px;
+    }
+  }
+
+  .header__title{
+    font-size: 4rem;
+    font-family: 'Christopher',sans-serif;
+
+    margin-left: 102px;
+  }
+
+  .form-search__input-search{
+    border: 1px solid #000000;
+  }
+
+  .form-search__button-search{
+    background: #E8C0C0;
+    color: #fff;
+
+    border: 0;
   }
 }

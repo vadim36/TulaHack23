@@ -3,7 +3,7 @@
         <header class="header navbar navbar-expand-lg bg-body-tertiary">
           <div class="container-fluid">
               <router-link to="/home" class="navbar-brand">
-                  <h2 class="header__title">Жены героев</h2>
+                  <h2 class="header__title">Жду</h2>
               </router-link>
               <nav class="header__nav nav">
                   <ul class="nav__list navbar-nav me-auto mb-2 mb-lg-0">
