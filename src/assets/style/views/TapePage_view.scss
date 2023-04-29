@@ -6,7 +6,8 @@
   flex-direction: column;
   align-items: center;
 
-  background: url("../../img/RR.png");
+  background: url("@/assets/img/RR.png") center;
+  background-size: 150%;
 
   .tape__title{
     width: 100%;
@@ -22,5 +23,9 @@
     flex-direction: column;
 
     align-items: center;
+
+    width: 75%;
+
+    padding: 20px;
   }
 }

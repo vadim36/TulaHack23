@@ -87,6 +87,9 @@
 
     padding: 15px;
 
+    background: url("@/assets/img/RR.png") center;
+    background-size: 150%;
+
     .posts-card__header{
       display: flex;
       justify-content: space-between;
@@ -119,11 +122,15 @@
 
       align-items: center;
 
-      background: url("../../img/RR.png");
-
       .card-post + .card-post {
         margin-top: 20px;
       }
     }
   }
+}
+
+input.container-about__form-changeName,
+select.container-about__form-selectTown,
+textarea.container-about__form-changeDescription {
+  display: none;
 }

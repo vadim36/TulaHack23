@@ -351,6 +351,8 @@
     </div>
 </template>
 <script>
+import router from "@/router";
+
 export default {
     data() {
         return {
@@ -393,9 +395,14 @@ export default {
                 this.passwordRepeatError = null;
             }
 
+            if (this.password !== this.passwordRepeat) {
+                this.passwordRepeatError = 'Пароли не совпадают';
+            } else {
+                this.passwordRepeatError = null;
+            }
+
             if (this.nameError === null && this.emailError === null
                 && this.passwordError === null && this.passwordRepeatError === null) {
-                //$route.push('/home');
                 registrationForm.submit();
             }
         }

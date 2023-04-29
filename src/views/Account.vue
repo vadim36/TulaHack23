@@ -1,423 +1,412 @@
 <template>
-  <div class="card-account">
-      <h1 class="card-account__title">Ваш аккаунт</h1>
-      <div class="card-account__profile-card profile-card">
-          <img class="profile-card__image" src="https://plus.unsplash.com/premium_photo-1661274050137-edc61fa89ffc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cmFuZG9tfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="">
-          <div class="profile-card__container-about container-about">
-              <h2 class="container-about__title-name">Иванова Инна Ивановна</h2>
-              <strong class="container-about__title-town">Город: Тула</strong>
-              <p class="container-about__text-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci cum cumque earum et incidunt ipsa. Accusamus quidem recusandae rem sequi suscipit voluptatum. Adipisci aliquam aliquid animi aperiam aut corporis culpa cum ducimus ea exercitationem fuga fugiat fugit, hic incidunt ipsa iste laudantium minus molestias non odio officiis quaerat quo rem repellat sunt tempore tenetur, ut velit voluptas voluptatibus?</p>
-              <button type="button" class="container-about__button-edit btn btn-outline-primary"
-                @click="editAccount()">Изменить аккаунт</button>
-          </div>
-      </div>
-      <div class="card-account__posts-card posts-card">
-          <div class="posts-card__header">
-              <h2 class="posts-card__title">Ваши посты</h2>
-              <router-link to="/makePost">
-                  <button type="button" class="posts-card__button-add btn btn-outline-success">Создать новый пост</button>
-              </router-link>
-          </div>
-          <div class="posts-card__container-posts">
-              <NewPost/>
-              <NewPost/>
-              <NewPost/>
-              <NewPost/>
-              <NewPost/>
-          </div>
-      </div>
-  </div>
+    <div class="card-account">
+        <h1 class="card-account__title">Ваш аккаунт</h1>
+        <div class="card-account__profile-card profile-card">
+            <img class="profile-card__image"
+                 src="https://plus.unsplash.com/premium_photo-1661274050137-edc61fa89ffc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cmFuZG9tfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+                 alt="">
+            <div class="profile-card__container-about container-about">
+                <h2 class="container-about__title-name">{{ name }}</h2>
+                <input v-model="name" type="text" class="container-about__form-changeName form-control">
+                <strong class="container-about__title-town">Город: {{ town }}</strong>
+                <select v-model="town" class="container-about__form-selectTown form-select">
+                    <option value="Москва">Москва</option>
+                    <option value="Санкт-Петербург">Санкт-Петербург</option>
+                    <option value="Пенза">Пенза</option>
+                    <option value="Абакан">Абакан</option>
+                    <option value="Азов">Азов</option>
+                    <option value="Александров">Александров</option>
+                    <option value="Алексин">Алексин</option>
+                    <option value="Альметьевск">Альметьевск</option>
+                    <option value="Анапа">Анапа</option>
+                    <option value="Ангарск">Ангарск</option>
+                    <option value="Анжеро">Анжеро-Судженск</option>
+                    <option value="Апатиты">Апатиты</option>
+                    <option value="Арзамас">Арзамас</option>
+                    <option value="Армавир">Армавир</option>
+                    <option value="Арсеньев">Арсеньев</option>
+                    <option value="Артем">Артем</option>
+                    <option value="Архангельск">Архангельск</option>
+                    <option value="Асбест">Асбест</option>
+                    <option value="Астрахань">Астрахань</option>
+                    <option value="Ачинск">Ачинск</option>
+                    <option value="Балаково">Балаково</option>
+                    <option value="Балахна">Балахна</option>
+                    <option value="Балашиха">Балашиха</option>
+                    <option value="Балашов">Балашов</option>
+                    <option value="Барнаул">Барнаул</option>
+                    <option value="Батайск">Батайск</option>
+                    <option value="Белгород">Белгород</option>
+                    <option value="Белебей">Белебей</option>
+                    <option value="Белово">Белово</option>
+                    <option value="Белогорск (Амурская область)">Белогорск (Амурская область)</option>
+                    <option value="Белорецк">Белорецк</option>
+                    <option value="Белореченск">Белореченск</option>
+                    <option value="Бердск">Бердск</option>
+                    <option value="Березники">Березники</option>
+                    <option value="Березовский (Свердловская область)">Березовский (Свердловская область)</option>
+                    <option value="Бийск">Бийск</option>
+                    <option value="Биробиджан">Биробиджан</option>
+                    <option value="Благовещенск (Амурская область)">Благовещенск (Амурская область)</option>
+                    <option value="Бор">Бор</option>
+                    <option value="Борисоглебск">Борисоглебск</option>
+                    <option value="Боровичи">Боровичи</option>
+                    <option value="Братск">Братск</option>
+                    <option value="Брянск">Брянск</option>
+                    <option value="Бугульма">Бугульма</option>
+                    <option value="Буденновск">Буденновск</option>
+                    <option value="Бузулук">Бузулук</option>
+                    <option value="Буйнакск">Буйнакск</option>
+                    <option value="Великие Луки">Великие Луки</option>
+                    <option value="Великий Новгород">Великий Новгород</option>
+                    <option value="Верхняя Пышма">Верхняя Пышма</option>
+                    <option value="Видное">Видное</option>
+                    <option value="Владивосток">Владивосток</option>
+                    <option value="Владикавказ">Владикавказ</option>
+                    <option value="Владимир">Владимир</option>
+                    <option value="Волгоград">Волгоград</option>
+                    <option value="Волгодонск">Волгодонск</option>
+                    <option value="Волжск">Волжск</option>
+                    <option value="Волжский">Волжский</option>
+                    <option value="Вологда">Вологда</option>
+                    <option value="Вольск">Вольск</option>
+                    <option value="Воркута">Воркута</option>
+                    <option value="Воронеж">Воронеж</option>
+                    <option value="Воскресенск">Воскресенск</option>
+                    <option value="Воткинск">Воткинск</option>
+                    <option value="Всеволожск">Всеволожск</option>
+                    <option value="Выборг">Выборг</option>
+                    <option value="Выкса">Выкса</option>
+                    <option value="Вязьма">Вязьма</option>
+                    <option value="Гатчина">Гатчина</option>
+                    <option value="Геленджик">Геленджик</option>
+                    <option value="Георгиевск">Георгиевск</option>
+                    <option value="Глазов">Глазов</option>
+                    <option value="Горно-Алтайск">Горно-Алтайск</option>
+                    <option value="Грозный">Грозный</option>
+                    <option value="Губкин">Губкин</option>
+                    <option value="Гудермес">Гудермес</option>
+                    <option value="Гуково">Гуково</option>
+                    <option value="Гусь-Хрустальный">Гусь-Хрустальный</option>
+                    <option value="Дербент">Дербент</option>
+                    <option value="Дзержинск">Дзержинск</option>
+                    <option value="Димитровград">Димитровград</option>
+                    <option value="Дмитров">Дмитров</option>
+                    <option value="Долгопрудный">Долгопрудный</option>
+                    <option value="Домодедово">Домодедово</option>
+                    <option value="Донской">Донской</option>
+                    <option value="Дубна">Дубна</option>
+                    <option value="Евпатория">Евпатория</option>
+                    <option value="Егорьевск">Егорьевск</option>
+                    <option value="Ейск">Ейск</option>
+                    <option value="Екатеринбург">Екатеринбург</option>
+                    <option value="Елабуга">Елабуга</option>
+                    <option value="Елец">Елец</option>
+                    <option value="Ессентуки">Ессентуки</option>
+                    <option value="Железногорск (Красноярский край)">Железногорск (Красноярский край)</option>
+                    <option value="Железногорск (Курская область)">Железногорск (Курская область)</option>
+                    <option value="Жигулевск">Жигулевск</option>
+                    <option value="Жуковский">Жуковский</option>
+                    <option value="Заречный">Заречный</option>
+                    <option value="Зеленогорск">Зеленогорск</option>
+                    <option value="Зеленодольск">Зеленодольск</option>
+                    <option value="Златоуст">Златоуст</option>
+                    <option value="Иваново">Иваново</option>
+                    <option value="Ивантеевка">Ивантеевка</option>
+                    <option value="Ижевск">Ижевск</option>
+                    <option value="Избербаш">Избербаш</option>
+                    <option value="Иркутск">Иркутск</option>
+                    <option value="Искитим">Искитим</option>
+                    <option value="Ишим">Ишим</option>
+                    <option value="Ишимбай">Ишимбай</option>
+                    <option value="Йошкар-Ола">Йошкар-Ола</option>
+                    <option value="Казань">Казань</option>
+                    <option value="Калининград">Калининград</option>
+                    <option value="Калуга">Калуга</option>
+                    <option value="Каменск-Уральский">Каменск-Уральский</option>
+                    <option value="Каменск-Шахтинский">Каменск-Шахтинский</option>
+                    <option value="Камышин">Камышин</option>
+                    <option value="Канск">Канск</option>
+                    <option value="Каспийск">Каспийск</option>
+                    <option value="Кемерово">Кемерово</option>
+                    <option value="Керчь">Керчь</option>
+                    <option value="Кинешма">Кинешма</option>
+                    <option value="Кириши">Кириши</option>
+                    <option value="Киров (Кировская область)">Киров (Кировская область)</option>
+                    <option value="Кирово-Чепецк">Кирово-Чепецк</option>
+                    <option value="Киселевск">Киселевск</option>
+                    <option value="Кисловодск">Кисловодск</option>
+                    <option value="Клин">Клин</option>
+                    <option value="Клинцы">Клинцы</option>
+                    <option value="Ковров">Ковров</option>
+                    <option value="Когалым">Когалым</option>
+                    <option value="Коломна">Коломна</option>
+                    <option value="Комсомольск-на-Амуре">Комсомольск-на-Амуре</option>
+                    <option value="Копейск">Копейск</option>
+                    <option value="Королев">Королев</option>
+                    <option value="Кострома">Кострома</option>
+                    <option value="Котлас">Котлас</option>
+                    <option value="Красногорск">Красногорск</option>
+                    <option value="Краснодар">Краснодар</option>
+                    <option value="Краснокаменск">Краснокаменск</option>
+                    <option value="Краснокамск">Краснокамск</option>
+                    <option value="Краснотурьинск">Краснотурьинск</option>
+                    <option value="Красноярск">Красноярск</option>
+                    <option value="Кропоткин">Кропоткин</option>
+                    <option value="Крымск">Крымск</option>
+                    <option value="Кстово">Кстово</option>
+                    <option value="Кузнецк">Кузнецк</option>
+                    <option value="Кумертау">Кумертау</option>
+                    <option value="Кунгур">Кунгур</option>
+                    <option value="Курган">Курган</option>
+                    <option value="Курск">Курск</option>
+                    <option value="Кызыл">Кызыл</option>
+                    <option value="Лабинск">Лабинск</option>
+                    <option value="Лениногорск">Лениногорск</option>
+                    <option value="Ленинск-Кузнецкий">Ленинск-Кузнецкий</option>
+                    <option value="Лесосибирск">Лесосибирск</option>
+                    <option value="Липецк">Липецк</option>
+                    <option value="Лиски">Лиски</option>
+                    <option value="Лобня">Лобня</option>
+                    <option value="Лысьва">Лысьва</option>
+                    <option value="Лыткарино">Лыткарино</option>
+                    <option value="Люберцы">Люберцы</option>
+                    <option value="Магадан">Магадан</option>
+                    <option value="Магнитогорск">Магнитогорск</option>
+                    <option value="Майкоп">Майкоп</option>
+                    <option value="Махачкала">Махачкала</option>
+                    <option value="Междуреченск">Междуреченск</option>
+                    <option value="Мелеуз">Мелеуз</option>
+                    <option value="Миасс">Миасс</option>
+                    <option value="Минеральные Воды">Минеральные Воды</option>
+                    <option value="Минусинск">Минусинск</option>
+                    <option value="Михайловка">Михайловка</option>
+                    <option value="Михайловск (Ставропольский край)">Михайловск (Ставропольский край)</option>
+                    <option value="Мичуринск">Мичуринск</option>
+                    <option value="Мурманск">Мурманск</option>
+                    <option value="Муром">Муром</option>
+                    <option value="Мытищи">Мытищи</option>
+                    <option value="Набережные Челны">Набережные Челны</option>
+                    <option value="Назарово">Назарово</option>
+                    <option value="Назрань">Назрань</option>
+                    <option value="Нальчик">Нальчик</option>
+                    <option value="Наро-Фоминск">Наро-Фоминск</option>
+                    <option value="Находка">Находка</option>
+                    <option value="Невинномысск">Невинномысск</option>
+                    <option value="Нерюнгри">Нерюнгри</option>
+                    <option value="Нефтекамск">Нефтекамск</option>
+                    <option value="Нефтеюганск">Нефтеюганск</option>
+                    <option value="Нижневартовск">Нижневартовск</option>
+                    <option value="Нижнекамск">Нижнекамск</option>
+                    <option value="Нижний Новгород">Нижний Новгород</option>
+                    <option value="Нижний Тагил">Нижний Тагил</option>
+                    <option value="Новоалтайск">Новоалтайск</option>
+                    <option value="Новокузнецк">Новокузнецк</option>
+                    <option value="Новокуйбышевск">Новокуйбышевск</option>
+                    <option value="Новомосковск">Новомосковск</option>
+                    <option value="Новороссийск">Новороссийск</option>
+                    <option value="Новосибирск">Новосибирск</option>
+                    <option value="Новотроицк">Новотроицк</option>
+                    <option value="Новоуральск">Новоуральск</option>
+                    <option value="Новочебоксарск">Новочебоксарск</option>
+                    <option value="Новочеркасск">Новочеркасск</option>
+                    <option value="Новошахтинск">Новошахтинск</option>
+                    <option value="Новый Уренгой">Новый Уренгой</option>
+                    <option value="Ногинск">Ногинск</option>
+                    <option value="Норильск">Норильск</option>
+                    <option value="Ноябрьск">Ноябрьск</option>
+                    <option value="Нягань">Нягань</option>
+                    <option value="Обнинск">Обнинск</option>
+                    <option value="Одинцово">Одинцово</option>
+                    <option value="Озерск (Челябинская область)">Озерск (Челябинская область)</option>
+                    <option value="Октябрьский">Октябрьский</option>
+                    <option value="Омск">Омск</option>
+                    <option value="Орел">Орел</option>
+                    <option value="Оренбург">Оренбург</option>
+                    <option value="Орехово-Зуево">Орехово-Зуево</option>
+                    <option value="Орск">Орск</option>
+                    <option value="Павлово">Павлово</option>
+                    <option value="Павловский Посад">Павловский Посад</option>
+                    <option value="Первоуральск">Первоуральск</option>
+                    <option value="Пермь">Пермь</option>
+                    <option value="Петрозаводск">Петрозаводск</option>
+                    <option value="Петропавловск-Камчатский">Петропавловск-Камчатский</option>
+                    <option value="Подольск">Подольск</option>
+                    <option value="Полевской">Полевской</option>
+                    <option value="Прокопьевск">Прокопьевск</option>
+                    <option value="Прохладный">Прохладный</option>
+                    <option value="Псков">Псков</option>
+                    <option value="Пушкино">Пушкино</option>
+                    <option value="Пятигорск">Пятигорск</option>
+                    <option value="Раменское">Раменское</option>
+                    <option value="Ревда">Ревда</option>
+                    <option value="Реутов">Реутов</option>
+                    <option value="Ржев">Ржев</option>
+                    <option value="Рославль">Рославль</option>
+                    <option value="Россошь">Россошь</option>
+                    <option value="Ростов-на-Дону">Ростов-на-Дону</option>
+                    <option value="Рубцовск">Рубцовск</option>
+                    <option value="Рыбинск">Рыбинск</option>
+                    <option value="Рязань">Рязань</option>
+                    <option value="Салават">Салават</option>
+                    <option value="Сальск">Сальск</option>
+                    <option value="Самара">Самара</option>
+                    <option value="Саранск">Саранск</option>
+                    <option value="Сарапул">Сарапул</option>
+                    <option value="Саратов">Саратов</option>
+                    <option value="Саров">Саров</option>
+                    <option value="Свободный">Свободный</option>
+                    <option value="Севастополь">Севастополь</option>
+                    <option value="Северодвинск">Северодвинск</option>
+                    <option value="Северск">Северск</option>
+                    <option value="Сергиев Посад">Сергиев Посад</option>
+                    <option value="Серов">Серов</option>
+                    <option value="Серпухов">Серпухов</option>
+                    <option value="Сертолово">Сертолово</option>
+                    <option value="Сибай">Сибай</option>
+                    <option value="Симферополь">Симферополь</option>
+                    <option value="Славянск-на-Кубани">Славянск-на-Кубани</option>
+                    <option value="Смоленск">Смоленск</option>
+                    <option value="Соликамск">Соликамск</option>
+                    <option value="Солнечногорск">Солнечногорск</option>
+                    <option value="Сосновый Бор">Сосновый Бор</option>
+                    <option value="Сочи">Сочи</option>
+                    <option value="Ставрополь">Ставрополь</option>
+                    <option value="Старый Оскол">Старый Оскол</option>
+                    <option value="Стерлитамак">Стерлитамак</option>
+                    <option value="Ступино">Ступино</option>
+                    <option value="Сургут">Сургут</option>
+                    <option value="Сызрань">Сызрань</option>
+                    <option value="Сыктывкар">Сыктывкар</option>
+                    <option value="Таганрог">Таганрог</option>
+                    <option value="Тамбов">Тамбов</option>
+                    <option value="Тверь">Тверь</option>
+                    <option value="Тимашевск">Тимашевск</option>
+                    <option value="Тимашевск">Тихвин</option>
+                    <option value="Тихорецк">Тихорецк</option>
+                    <option value="Тобольск">Тобольск</option>
+                    <option value="Тольятти">Тольятти</option>
+                    <option value="Томск">Томск</option>
+                    <option value="Троицк">Троицк</option>
+                    <option value="Туапсе">Туапсе</option>
+                    <option value="Туймазы">Туймазы</option>
+                    <option value="Тула">Тула</option>
+                    <option value="Тюмень">Тюмень</option>
+                    <option value="Узловая">Узловая</option>
+                    <option value="Улан-Удэ">Улан-Удэ</option>
+                    <option value="Ульяновск">Ульяновск</option>
+                    <option value="Урус-Мартан">Урус-Мартан</option>
+                    <option value="Усолье-Сибирское">Усолье-Сибирское</option>
+                    <option value="Уссурийск">Уссурийск</option>
+                    <option value="Усть-Илимск">Усть-Илимск</option>
+                    <option value="Уфа">Уфа</option>
+                    <option value="Ухта">Ухта</option>
+                    <option value="Феодосия">Феодосия</option>
+                    <option value="Фрязино">Фрязино</option>
+                    <option value="Хабаровск">Хабаровск</option>
+                    <option value="Ханты-Мансийск">Ханты-Мансийск</option>
+                    <option value="Хасавюрт">Хасавюрт</option>
+                    <option value="Химки">Химки</option>
+                    <option value="Чайковский">Чайковский</option>
+                    <option value="Чапаевск">Чапаевск</option>
+                    <option value="Чебоксары">Чебоксары</option>
+                    <option value="Челябинск">Челябинск</option>
+                    <option value="Черемхово">Черемхово</option>
+                    <option value="Череповец">Череповец</option>
+                    <option value="Черкесск">Черкесск</option>
+                    <option value="Черногорск">Черногорск</option>
+                    <option value="Чехов">Чехов</option>
+                    <option value="Чистополь">Чистополь</option>
+                    <option value="Чита">Чита</option>
+                    <option value="Шадринск">Шадринск</option>
+                    <option value="Шали">Шали</option>
+                    <option value="Шахты">Шахты</option>
+                    <option value="Шуя">Шуя</option>
+                    <option value="Щекино">Щекино</option>
+                    <option value="Щелково">Щелково</option>
+                    <option value="Электросталь">Электросталь</option>
+                    <option value="Элиста">Элиста</option>
+                    <option value="Энгельс">Энгельс</option>
+                    <option value="Южно-Сахалинск">Южно-Сахалинск</option>
+                    <option value="Юрга">Юрга</option>
+                    <option value="Якутск">Якутск</option>
+                    <option value="Ялта">Ялта</option>
+                    <option value="Ярославль">Ярославль</option>
+                </select>
+                <p class="container-about__text-description">{{description}}</p>
+                <textarea v-model="description" cols="10" rows="10" class="container-about__form-changeDescription form-control"></textarea>
+                <button type="button" class="container-about__button-edit btn btn-outline-primary"
+                        v-on:click="editAccount">Изменить аккаунт
+                </button>
+            </div>
+        </div>
+        <div class="card-account__posts-card posts-card">
+            <div class="posts-card__header">
+                <h2 class="posts-card__title">Ваши посты</h2>
+                <router-link to="/makePost">
+                    <button type="button" class="posts-card__button-add btn btn-success">Создать новый пост</button>
+                </router-link>
+            </div>
+            <div class="posts-card__container-posts">
+                <NewPost/>
+                <NewPost/>
+                <NewPost/>
+                <NewPost/>
+                <NewPost/>
+            </div>
+        </div>
+    </div>
 </template>
 <script>
 import NewPost from "@/components/NewPost.vue";
+
 export default {
+    data() {
+        return {
+            name: 'Иванова Инна Ивановна',
+            town: 'Тула',
+            description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit Adipisci cum cumque earum et incidunt ipsa. Accusamus quidem recusandae rem sequi suscipit voluptatum. Adipisci aliquam aliquid animi aperiam aut corporis culpa cum ducimus ea exercitationem fuga fugiat fugit, hic incidunt ipsa iste laudantium minus molestias non odio officiis quaerat quo rem repellat sunt tempore tenetur, ut velit voluptas voluptatibus?'
+        }
+    },
     components: {
         NewPost
     },
     methods: {
-        editAccount() {
-            /*const profileImageElement = document.querySelector('.profile-card__image');
-            const profileNameField = document.querySelector('.container-about__title-name');
-            const profileTownField = document.querySelector('.container-about__title-town');
-            const profileDescriptionField = document.querySelector('.container-about__text-description');
-            const profileEditButton = document.querySelector('.container-about__button-edit');
+        editAccount(event) {
+            const nameTitleElement = document.querySelector('.container-about__title-name');
+            const townTitleElement = document.querySelector('.container-about__title-town');
+            const descriptionTextElement = document.querySelector('.container-about__text-description');
 
-            profileImageElement.classList.add('edit-image');
-            profileImageElement.addEventListener('click', () => {
-                //TODO: доделать это
-            });
+            const formNameField = document.querySelector('.container-about__form-changeName');
+            const formSelectTown = document.querySelector('.container-about__form-selectTown');
+            const formDescriptionField = document.querySelector('.container-about__form-changeDescription');
 
-            const profileNameFieldValue = profileNameField.innerHTML;
-            profileNameField.remove()
-            const newProfileNameField = document.createElement('input');
-            newProfileNameField.classList.add('form-control');
-            newProfileNameField.value = profileNameFieldValue;
-            profileTownField.before(newProfileNameField);
+            if (nameTitleElement.style.display === 'block') {
+                nameTitleElement.style.display = 'none';
+                townTitleElement.style.display = 'none';
+                descriptionTextElement.style.display = 'none';
 
-            profileTownField.remove();
-            const newProfileTownField = document.createElement('select');
-            newProfileTownField.classList.add('form-select');
-            newProfileTownField.innerHTML = '' +
-                '<option value="Москва">Москва</option>\n' +
-                '                <option value="Санкт-Петербург">Санкт-Петербург</option>\n' +
-                '                <option value="Пенза">Пенза</option>\n' +
-                '                <option value="Абакан">Абакан</option>\n' +
-                '                <option value="Азов">Азов</option>\n' +
-                '                <option value="Александров">Александров</option>\n' +
-                '                <option value="Алексин">Алексин</option>\n' +
-                '                <option value="Альметьевск">Альметьевск</option>\n' +
-                '                <option value="Анапа">Анапа</option>\n' +
-                '                <option value="Ангарск">Ангарск</option>\n' +
-                '                <option value="Анжеро">Анжеро-Судженск</option>\n' +
-                '                <option value="Апатиты">Апатиты</option>\n' +
-                '                <option value="Арзамас">Арзамас</option>\n' +
-                '                <option value="Армавир">Армавир</option>\n' +
-                '                <option value="Арсеньев">Арсеньев</option>\n' +
-                '                <option value="Артем">Артем</option>\n' +
-                '                <option value="Архангельск">Архангельск</option>\n' +
-                '                <option value="Асбест">Асбест</option>\n' +
-                '                <option value="Астрахань">Астрахань</option>\n' +
-                '                <option value="Ачинск">Ачинск</option>\n' +
-                '                <option value="Балаково">Балаково</option>\n' +
-                '                <option value="Балахна">Балахна</option>\n' +
-                '                <option value="Балашиха">Балашиха</option>\n' +
-                '                <option value="Балашов">Балашов</option>\n' +
-                '                <option value="Барнаул">Барнаул</option>\n' +
-                '                <option value="Батайск">Батайск</option>\n' +
-                '                <option value="Белгород">Белгород</option>\n' +
-                '                <option value="Белебей">Белебей</option>\n' +
-                '                <option value="Белово">Белово</option>\n' +
-                '                <option value="Белогорск (Амурская область)">Белогорск (Амурская область)</option>\n' +
-                '                <option value="Белорецк">Белорецк</option>\n' +
-                '                <option value="Белореченск">Белореченск</option>\n' +
-                '                <option value="Бердск">Бердск</option>\n' +
-                '                <option value="Березники">Березники</option>\n' +
-                '                <option value="Березовский (Свердловская область)">Березовский (Свердловская область)</option>\n' +
-                '                <option value="Бийск">Бийск</option>\n' +
-                '                <option value="Биробиджан">Биробиджан</option>\n' +
-                '                <option value="Благовещенск (Амурская область)">Благовещенск (Амурская область)</option>\n' +
-                '                <option value="Бор">Бор</option>\n' +
-                '                <option value="Борисоглебск">Борисоглебск</option>\n' +
-                '                <option value="Боровичи">Боровичи</option>\n' +
-                '                <option value="Братск">Братск</option>\n' +
-                '                <option value="Брянск">Брянск</option>\n' +
-                '                <option value="Бугульма">Бугульма</option>\n' +
-                '                <option value="Буденновск">Буденновск</option>\n' +
-                '                <option value="Бузулук">Бузулук</option>\n' +
-                '                <option value="Буйнакск">Буйнакск</option>\n' +
-                '                <option value="Великие Луки">Великие Луки</option>\n' +
-                '                <option value="Великий Новгород">Великий Новгород</option>\n' +
-                '                <option value="Верхняя Пышма">Верхняя Пышма</option>\n' +
-                '                <option value="Видное">Видное</option>\n' +
-                '                <option value="Владивосток">Владивосток</option>\n' +
-                '                <option value="Владикавказ">Владикавказ</option>\n' +
-                '                <option value="Владимир">Владимир</option>\n' +
-                '                <option value="Волгоград">Волгоград</option>\n' +
-                '                <option value="Волгодонск">Волгодонск</option>\n' +
-                '                <option value="Волжск">Волжск</option>\n' +
-                '                <option value="Волжский">Волжский</option>\n' +
-                '                <option value="Вологда">Вологда</option>\n' +
-                '                <option value="Вольск">Вольск</option>\n' +
-                '                <option value="Воркута">Воркута</option>\n' +
-                '                <option value="Воронеж">Воронеж</option>\n' +
-                '                <option value="Воскресенск">Воскресенск</option>\n' +
-                '                <option value="Воткинск">Воткинск</option>\n' +
-                '                <option value="Всеволожск">Всеволожск</option>\n' +
-                '                <option value="Выборг">Выборг</option>\n' +
-                '                <option value="Выкса">Выкса</option>\n' +
-                '                <option value="Вязьма">Вязьма</option>\n' +
-                '                <option value="Гатчина">Гатчина</option>\n' +
-                '                <option value="Геленджик">Геленджик</option>\n' +
-                '                <option value="Георгиевск">Георгиевск</option>\n' +
-                '                <option value="Глазов">Глазов</option>\n' +
-                '                <option value="Горно-Алтайск">Горно-Алтайск</option>\n' +
-                '                <option value="Грозный">Грозный</option>\n' +
-                '                <option value="Губкин">Губкин</option>\n' +
-                '                <option value="Гудермес">Гудермес</option>\n' +
-                '                <option value="Гуково">Гуково</option>\n' +
-                '                <option value="Гусь-Хрустальный">Гусь-Хрустальный</option>\n' +
-                '                <option value="Дербент">Дербент</option>\n' +
-                '                <option value="Дзержинск">Дзержинск</option>\n' +
-                '                <option value="Димитровград">Димитровград</option>\n' +
-                '                <option value="Дмитров">Дмитров</option>\n' +
-                '                <option value="Долгопрудный">Долгопрудный</option>\n' +
-                '                <option value="Домодедово">Домодедово</option>\n' +
-                '                <option value="Донской">Донской</option>\n' +
-                '                <option value="Дубна">Дубна</option>\n' +
-                '                <option value="Евпатория">Евпатория</option>\n' +
-                '                <option value="Егорьевск">Егорьевск</option>\n' +
-                '                <option value="Ейск">Ейск</option>\n' +
-                '                <option value="Екатеринбург">Екатеринбург</option>\n' +
-                '                <option value="Елабуга">Елабуга</option>\n' +
-                '                <option value="Елец">Елец</option>\n' +
-                '                <option value="Ессентуки">Ессентуки</option>\n' +
-                '                <option value="Железногорск (Красноярский край)">Железногорск (Красноярский край)</option>\n' +
-                '                <option value="Железногорск (Курская область)">Железногорск (Курская область)</option>\n' +
-                '                <option value="Жигулевск">Жигулевск</option>\n' +
-                '                <option value="Жуковский">Жуковский</option>\n' +
-                '                <option value="Заречный">Заречный</option>\n' +
-                '                <option value="Зеленогорск">Зеленогорск</option>\n' +
-                '                <option value="Зеленодольск">Зеленодольск</option>\n' +
-                '                <option value="Златоуст">Златоуст</option>\n' +
-                '                <option value="Иваново">Иваново</option>\n' +
-                '                <option value="Ивантеевка">Ивантеевка</option>\n' +
-                '                <option value="Ижевск">Ижевск</option>\n' +
-                '                <option value="Избербаш">Избербаш</option>\n' +
-                '                <option value="Иркутск">Иркутск</option>\n' +
-                '                <option value="Искитим">Искитим</option>\n' +
-                '                <option value="Ишим">Ишим</option>\n' +
-                '                <option value="Ишимбай">Ишимбай</option>\n' +
-                '                <option value="Йошкар-Ола">Йошкар-Ола</option>\n' +
-                '                <option value="Казань">Казань</option>\n' +
-                '                <option value="Калининград">Калининград</option>\n' +
-                '                <option value="Калуга">Калуга</option>\n' +
-                '                <option value="Каменск-Уральский">Каменск-Уральский</option>\n' +
-                '                <option value="Каменск-Шахтинский">Каменск-Шахтинский</option>\n' +
-                '                <option value="Камышин">Камышин</option>\n' +
-                '                <option value="Канск">Канск</option>\n' +
-                '                <option value="Каспийск">Каспийск</option>\n' +
-                '                <option value="Кемерово">Кемерово</option>\n' +
-                '                <option value="Керчь">Керчь</option>\n' +
-                '                <option value="Кинешма">Кинешма</option>\n' +
-                '                <option value="Кириши">Кириши</option>\n' +
-                '                <option value="Киров (Кировская область)">Киров (Кировская область)</option>\n' +
-                '                <option value="Кирово-Чепецк">Кирово-Чепецк</option>\n' +
-                '                <option value="Киселевск">Киселевск</option>\n' +
-                '                <option value="Кисловодск">Кисловодск</option>\n' +
-                '                <option value="Клин">Клин</option>\n' +
-                '                <option value="Клинцы">Клинцы</option>\n' +
-                '                <option value="Ковров">Ковров</option>\n' +
-                '                <option value="Когалым">Когалым</option>\n' +
-                '                <option value="Коломна">Коломна</option>\n' +
-                '                <option value="Комсомольск-на-Амуре">Комсомольск-на-Амуре</option>\n' +
-                '                <option value="Копейск">Копейск</option>\n' +
-                '                <option value="Королев">Королев</option>\n' +
-                '                <option value="Кострома">Кострома</option>\n' +
-                '                <option value="Котлас">Котлас</option>\n' +
-                '                <option value="Красногорск">Красногорск</option>\n' +
-                '                <option value="Краснодар">Краснодар</option>\n' +
-                '                <option value="Краснокаменск">Краснокаменск</option>\n' +
-                '                <option value="Краснокамск">Краснокамск</option>\n' +
-                '                <option value="Краснотурьинск">Краснотурьинск</option>\n' +
-                '                <option value="Красноярск">Красноярск</option>\n' +
-                '                <option value="Кропоткин">Кропоткин</option>\n' +
-                '                <option value="Крымск">Крымск</option>\n' +
-                '                <option value="Кстово">Кстово</option>\n' +
-                '                <option value="Кузнецк">Кузнецк</option>\n' +
-                '                <option value="Кумертау">Кумертау</option>\n' +
-                '                <option value="Кунгур">Кунгур</option>\n' +
-                '                <option value="Курган">Курган</option>\n' +
-                '                <option value="Курск">Курск</option>\n' +
-                '                <option value="Кызыл">Кызыл</option>\n' +
-                '                <option value="Лабинск">Лабинск</option>\n' +
-                '                <option value="Лениногорск">Лениногорск</option>\n' +
-                '                <option value="Ленинск-Кузнецкий">Ленинск-Кузнецкий</option>\n' +
-                '                <option value="Лесосибирск">Лесосибирск</option>\n' +
-                '                <option value="Липецк">Липецк</option>\n' +
-                '                <option value="Лиски">Лиски</option>\n' +
-                '                <option value="Лобня">Лобня</option>\n' +
-                '                <option value="Лысьва">Лысьва</option>\n' +
-                '                <option value="Лыткарино">Лыткарино</option>\n' +
-                '                <option value="Люберцы">Люберцы</option>\n' +
-                '                <option value="Магадан">Магадан</option>\n' +
-                '                <option value="Магнитогорск">Магнитогорск</option>\n' +
-                '                <option value="Майкоп">Майкоп</option>\n' +
-                '                <option value="Махачкала">Махачкала</option>\n' +
-                '                <option value="Междуреченск">Междуреченск</option>\n' +
-                '                <option value="Мелеуз">Мелеуз</option>\n' +
-                '                <option value="Миасс">Миасс</option>\n' +
-                '                <option value="Минеральные Воды">Минеральные Воды</option>\n' +
-                '                <option value="Минусинск">Минусинск</option>\n' +
-                '                <option value="Михайловка">Михайловка</option>\n' +
-                '                <option value="Михайловск (Ставропольский край)">Михайловск (Ставропольский край)</option>\n' +
-                '                <option value="Мичуринск">Мичуринск</option>\n' +
-                '                <option value="Мурманск">Мурманск</option>\n' +
-                '                <option value="Муром">Муром</option>\n' +
-                '                <option value="Мытищи">Мытищи</option>\n' +
-                '                <option value="Набережные Челны">Набережные Челны</option>\n' +
-                '                <option value="Назарово">Назарово</option>\n' +
-                '                <option value="Назрань">Назрань</option>\n' +
-                '                <option value="Нальчик">Нальчик</option>\n' +
-                '                <option value="Наро-Фоминск">Наро-Фоминск</option>\n' +
-                '                <option value="Находка">Находка</option>\n' +
-                '                <option value="Невинномысск">Невинномысск</option>\n' +
-                '                <option value="Нерюнгри">Нерюнгри</option>\n' +
-                '                <option value="Нефтекамск">Нефтекамск</option>\n' +
-                '                <option value="Нефтеюганск">Нефтеюганск</option>\n' +
-                '                <option value="Нижневартовск">Нижневартовск</option>\n' +
-                '                <option value="Нижнекамск">Нижнекамск</option>\n' +
-                '                <option value="Нижний Новгород">Нижний Новгород</option>\n' +
-                '                <option value="Нижний Тагил">Нижний Тагил</option>\n' +
-                '                <option value="Новоалтайск">Новоалтайск</option>\n' +
-                '                <option value="Новокузнецк">Новокузнецк</option>\n' +
-                '                <option value="Новокуйбышевск">Новокуйбышевск</option>\n' +
-                '                <option value="Новомосковск">Новомосковск</option>\n' +
-                '                <option value="Новороссийск">Новороссийск</option>\n' +
-                '                <option value="Новосибирск">Новосибирск</option>\n' +
-                '                <option value="Новотроицк">Новотроицк</option>\n' +
-                '                <option value="Новоуральск">Новоуральск</option>\n' +
-                '                <option value="Новочебоксарск">Новочебоксарск</option>\n' +
-                '                <option value="Новочеркасск">Новочеркасск</option>\n' +
-                '                <option value="Новошахтинск">Новошахтинск</option>\n' +
-                '                <option value="Новый Уренгой">Новый Уренгой</option>\n' +
-                '                <option value="Ногинск">Ногинск</option>\n' +
-                '                <option value="Норильск">Норильск</option>\n' +
-                '                <option value="Ноябрьск">Ноябрьск</option>\n' +
-                '                <option value="Нягань">Нягань</option>\n' +
-                '                <option value="Обнинск">Обнинск</option>\n' +
-                '                <option value="Одинцово">Одинцово</option>\n' +
-                '                <option value="Озерск (Челябинская область)">Озерск (Челябинская область)</option>\n' +
-                '                <option value="Октябрьский">Октябрьский</option>\n' +
-                '                <option value="Омск">Омск</option>\n' +
-                '                <option value="Орел">Орел</option>\n' +
-                '                <option value="Оренбург">Оренбург</option>\n' +
-                '                <option value="Орехово-Зуево">Орехово-Зуево</option>\n' +
-                '                <option value="Орск">Орск</option>\n' +
-                '                <option value="Павлово">Павлово</option>\n' +
-                '                <option value="Павловский Посад">Павловский Посад</option>\n' +
-                '                <option value="Первоуральск">Первоуральск</option>\n' +
-                '                <option value="Пермь">Пермь</option>\n' +
-                '                <option value="Петрозаводск">Петрозаводск</option>\n' +
-                '                <option value="Петропавловск-Камчатский">Петропавловск-Камчатский</option>\n' +
-                '                <option value="Подольск">Подольск</option>\n' +
-                '                <option value="Полевской">Полевской</option>\n' +
-                '                <option value="Прокопьевск">Прокопьевск</option>\n' +
-                '                <option value="Прохладный">Прохладный</option>\n' +
-                '                <option value="Псков">Псков</option>\n' +
-                '                <option value="Пушкино">Пушкино</option>\n' +
-                '                <option value="Пятигорск">Пятигорск</option>\n' +
-                '                <option value="Раменское">Раменское</option>\n' +
-                '                <option value="Ревда">Ревда</option>\n' +
-                '                <option value="Реутов">Реутов</option>\n' +
-                '                <option value="Ржев">Ржев</option>\n' +
-                '                <option value="Рославль">Рославль</option>\n' +
-                '                <option value="Россошь">Россошь</option>\n' +
-                '                <option value="Ростов-на-Дону">Ростов-на-Дону</option>\n' +
-                '                <option value="Рубцовск">Рубцовск</option>\n' +
-                '                <option value="Рыбинск">Рыбинск</option>\n' +
-                '                <option value="Рязань">Рязань</option>\n' +
-                '                <option value="Салават">Салават</option>\n' +
-                '                <option value="Сальск">Сальск</option>\n' +
-                '                <option value="Самара">Самара</option>\n' +
-                '                <option value="Саранск">Саранск</option>\n' +
-                '                <option value="Сарапул">Сарапул</option>\n' +
-                '                <option value="Саратов">Саратов</option>\n' +
-                '                <option value="Саров">Саров</option>\n' +
-                '                <option value="Свободный">Свободный</option>\n' +
-                '                <option value="Севастополь">Севастополь</option>\n' +
-                '                <option value="Северодвинск">Северодвинск</option>\n' +
-                '                <option value="Северск">Северск</option>\n' +
-                '                <option value="Сергиев Посад">Сергиев Посад</option>\n' +
-                '                <option value="Серов">Серов</option>\n' +
-                '                <option value="Серпухов">Серпухов</option>\n' +
-                '                <option value="Сертолово">Сертолово</option>\n' +
-                '                <option value="Сибай">Сибай</option>\n' +
-                '                <option value="Симферополь">Симферополь</option>\n' +
-                '                <option value="Славянск-на-Кубани">Славянск-на-Кубани</option>\n' +
-                '                <option value="Смоленск">Смоленск</option>\n' +
-                '                <option value="Соликамск">Соликамск</option>\n' +
-                '                <option value="Солнечногорск">Солнечногорск</option>\n' +
-                '                <option value="Сосновый Бор">Сосновый Бор</option>\n' +
-                '                <option value="Сочи">Сочи</option>\n' +
-                '                <option value="Ставрополь">Ставрополь</option>\n' +
-                '                <option value="Старый Оскол">Старый Оскол</option>\n' +
-                '                <option value="Стерлитамак">Стерлитамак</option>\n' +
-                '                <option value="Ступино">Ступино</option>\n' +
-                '                <option value="Сургут">Сургут</option>\n' +
-                '                <option value="Сызрань">Сызрань</option>\n' +
-                '                <option value="Сыктывкар">Сыктывкар</option>\n' +
-                '                <option value="Таганрог">Таганрог</option>\n' +
-                '                <option value="Тамбов">Тамбов</option>\n' +
-                '                <option value="Тверь">Тверь</option>\n' +
-                '                <option value="Тимашевск">Тимашевск</option>\n' +
-                '                <option value="Тимашевск">Тихвин</option>\n' +
-                '                <option value="Тихорецк">Тихорецк</option>\n' +
-                '                <option value="Тобольск">Тобольск</option>\n' +
-                '                <option value="Тольятти">Тольятти</option>\n' +
-                '                <option value="Томск">Томск</option>\n' +
-                '                <option value="Троицк">Троицк</option>\n' +
-                '                <option value="Туапсе">Туапсе</option>\n' +
-                '                <option value="Туймазы">Туймазы</option>\n' +
-                '                <option value="Тула">Тула</option>\n' +
-                '                <option value="Тюмень">Тюмень</option>\n' +
-                '                <option value="Узловая">Узловая</option>\n' +
-                '                <option value="Улан-Удэ">Улан-Удэ</option>\n' +
-                '                <option value="Ульяновск">Ульяновск</option>\n' +
-                '                <option value="Урус-Мартан">Урус-Мартан</option>\n' +
-                '                <option value="Усолье-Сибирское">Усолье-Сибирское</option>\n' +
-                '                <option value="Уссурийск">Уссурийск</option>\n' +
-                '                <option value="Усть-Илимск">Усть-Илимск</option>\n' +
-                '                <option value="Уфа">Уфа</option>\n' +
-                '                <option value="Ухта">Ухта</option>\n' +
-                '                <option value="Феодосия">Феодосия</option>\n' +
-                '                <option value="Фрязино">Фрязино</option>\n' +
-                '                <option value="Хабаровск">Хабаровск</option>\n' +
-                '                <option value="Ханты-Мансийск">Ханты-Мансийск</option>\n' +
-                '                <option value="Хасавюрт">Хасавюрт</option>\n' +
-                '                <option value="Химки">Химки</option>\n' +
-                '                <option value="Чайковский">Чайковский</option>\n' +
-                '                <option value="Чапаевск">Чапаевск</option>\n' +
-                '                <option value="Чебоксары">Чебоксары</option>\n' +
-                '                <option value="Челябинск">Челябинск</option>\n' +
-                '                <option value="Черемхово">Черемхово</option>\n' +
-                '                <option value="Череповец">Череповец</option>\n' +
-                '                <option value="Черкесск">Черкесск</option>\n' +
-                '                <option value="Черногорск">Черногорск</option>\n' +
-                '                <option value="Чехов">Чехов</option>\n' +
-                '                <option value="Чистополь">Чистополь</option>\n' +
-                '                <option value="Чита">Чита</option>\n' +
-                '                <option value="Шадринск">Шадринск</option>\n' +
-                '                <option value="Шали">Шали</option>\n' +
-                '                <option value="Шахты">Шахты</option>\n' +
-                '                <option value="Шуя">Шуя</option>\n' +
-                '                <option value="Щекино">Щекино</option>\n' +
-                '                <option value="Щелково">Щелково</option>\n' +
-                '                <option value="Электросталь">Электросталь</option>\n' +
-                '                <option value="Элиста">Элиста</option>\n' +
-                '                <option value="Энгельс">Энгельс</option>\n' +
-                '                <option value="Южно-Сахалинск">Южно-Сахалинск</option>\n' +
-                '                <option value="Юрга">Юрга</option>\n' +
-                '                <option value="Якутск">Якутск</option>\n' +
-                '                <option value="Ялта">Ялта</option>\n' +
-                '                <option value="Ярославль">Ярославль</option>';
-            profileDescriptionField.before(newProfileTownField);
+                event.target.innerHTML = 'Подтвердить изменения';
 
-            const profileDescriptionFieldValue = profileDescriptionField.innerHTML;
-            profileDescriptionField.remove();
-            const newProfileDescriptionField = document.createElement('textarea');
-            newProfileDescriptionField.rows = 15;
-            newProfileDescriptionField.cols = 10;
-            newProfileDescriptionField.classList.add('form-control');
-            newProfileDescriptionField.value = profileDescriptionFieldValue;
-            profileEditButton.before(newProfileDescriptionField);
+                formNameField.style.display = 'block';
+                formSelectTown.style.display = 'block';
+                formDescriptionField.style.display = 'block';
 
-            const profileEditButtonValue = profileEditButton.innerHTML;
-            profileEditButton.innerHTML = 'Сохранить изменения';
-            profileEditButton.addEventListener('click', () => {
-                profileEditButton.innerHTML = profileEditButtonValue;
+                formNameField.value = nameTitleElement.innerHTML;
+                formDescriptionField.value = descriptionTextElement.innerHTML;
 
-                const newProfileDescriptionFieldValue = newProfileDescriptionField.value;
-                newProfileDescriptionField.remove();
-                const profileDescriptionField3 = document.createElement('p');
-                profileDescriptionField3.classList.add('container-about__text-description');
-                profileDescriptionField3.innerHTML = newProfileDescriptionFieldValue;
-                profileEditButton.before(profileDescriptionField3);
+            } else {
+                nameTitleElement.style.display = 'block';
+                townTitleElement.style.display = 'block';
+                descriptionTextElement.style.display = 'block';
 
-                const newProfileTownFieldValue = newProfileTownField.value;
-                newProfileTownField.remove();
-                const profileTownField3 = document.createElement('strong');
-                profileTownField3.classList.add('container-about__title-town');
-                profileTownField3.innerHTML = `Город: ${newProfileTownFieldValue}`;
-                profileDescriptionField3.before(profileTownField3);
+                event.target.innerHTML = 'Изменить аккаунт';
 
-                const newProfileNameFieldValue = newProfileNameField.value;
-                newProfileNameField.remove();
-                const profileNameField3 = document.createElement('h2');
-                profileNameField3.classList.add('container-about__title-name');
-                profileNameField3.innerHTML = newProfileNameFieldValue;
-                profileTownField3.before(profileNameField3);
-            }, {once: true});*/
-         }
+                formNameField.style.display = 'none';
+                formSelectTown.style.display = 'none';
+                formDescriptionField.style.display = 'none';
+            }
+        }
     }
 }
 </script>

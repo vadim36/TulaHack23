@@ -14,6 +14,8 @@
 
   padding: 20px;
 
+  background: #fff;
+
   .card-post__title{
     text-align: center;
     font-size: 2.5rem;
@@ -21,8 +23,8 @@
   }
 
   .card-post__image{
-    width: 300px;
-    height: 350px;
+    width: 70%;
+    height: 65%;
 
     border-radius: 30px;
   }
@@ -41,12 +43,30 @@
       'like comment'
       'comments comments';
 
-  }
+    align-items: center;
+    justify-items: center;
 
-  .card-post__container-comments{
-    display: none;
-    &.show{
-      display: block;
+    .card-post__button-like{
+      grid-area: like;
+
+      width: 65%;
+      height: 85%;
+    }
+
+    .card-post__button-comment{
+      grid-area: comment;
+
+      width: 65%;
+      height: 85%;
+    }
+
+    .card-post__container-comments{
+      grid-area: comments;
+
+      display: none;
+      &.show{
+        display: block;
+      }
     }
   }
 }

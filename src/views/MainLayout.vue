@@ -2,17 +2,11 @@
     <div class="wrapper-mainPage">
         <header class="header navbar navbar-expand-lg bg-body-tertiary">
           <div class="container-fluid">
-              <router-link to="/home" class="navbar-brand">
+              <router-link to="/" class="navbar-brand">
                   <h2 class="header__title">Жду</h2>
               </router-link>
               <nav class="header__nav nav">
                   <ul class="nav__list navbar-nav me-auto mb-2 mb-lg-0">
-                      <li class="nav-item">
-                          <router-link to="/contacts" class="nav-link active" aria-current="page">Контакты</router-link>
-                      </li>
-                      <li class="nav-item">
-                          <router-link to="/settings" class="nav-link active" aria-current="page">Настройки</router-link>
-                      </li>
                       <li class="nav-item">
                           <router-link to="/personalAccount" class="nav-link active" aria-current="page">Личный Аккаунт</router-link>
                       </li>
@@ -27,7 +21,7 @@
         <router-view/>
     </div>
 
-    <Tape v-if="$route.path === '/home'"/>
+    <Tape v-if="$route.path === '/'"/>
 </template>
 <script>
 import Tape from '@/components/Tape.vue';

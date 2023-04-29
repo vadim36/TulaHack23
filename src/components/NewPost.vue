@@ -10,9 +10,9 @@
             voluptatum.</p>
         <div class="card-post__control-container">
             <button type="button" class="card-post__button-like btn btn-outline-danger"
-                    v-on:click.once="likePost" v-on:dblclick.once="removeLikePost"> {{likes}} Нравится
+                    v-on:click.once="likePost"> {{likes}} Нравится
             </button>
-            <button type="button" class="btn btn-outline-primary"
+            <button type="button" class="card-post__button-comment btn btn-outline-primary"
                 v-on:click="showComments">Комментарии</button>
             <div class="card-post__container-comments" id="comments">
                 Комментарии
@@ -28,23 +28,22 @@ export default {
         }
     },
     methods: {
-        likePost() {
-            const likeButton = document.querySelector('.card-post__button-like');
-            likeButton.classList.remove('btn-outline-danger');
-            likeButton.classList.add('btn-danger');
+        likePost(event) {
+            event.target.classList.remove('btn-outline-danger');
+            event.target.classList.add('btn-danger');
 
             this.likes +=1;
-        },
-        showComments() {
-            const commentsContainer = document.querySelector('.card-post__container-comments');
-            commentsContainer.classList.toggle('show');
-        },
-        removeLikePost(){
-            this.likes -= 1;
 
-            const likeButton = document.querySelector('.card-post__button-like');
-            likeButton.classList.remove('btn-danger');
-            likeButton.classList.add('btn-outline-danger');
+            event.target.addEventListener('click', event => {
+                this.likes -= 1;
+
+                event.target.classList.remove('btn-danger');
+                event.target.classList.add('btn-outline-danger');
+            }, { once: true })
+        },
+        showComments(event) {
+            const commentsContainer = event.target.parentElement.querySelector('.card-post__container-comments');
+            commentsContainer.classList.toggle('show');
         }
     }
 }
