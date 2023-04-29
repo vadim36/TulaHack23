@@ -10,13 +10,42 @@
             voluptatum.</p>
         <div class="card-post__control-container">
             <button type="button" class="card-post__button-like btn btn-outline-danger"
-                    v-on:click.once="likePost"> {{likes}} Нравится
+                    v-on:click="likePost"> {{ likes }} Нравится
             </button>
             <button type="button" class="card-post__button-comment btn btn-outline-primary"
-                v-on:click="showComments">Комментарии</button>
-            <div class="card-post__container-comments" id="comments">
-                Комментарии
+                    v-on:click="showComments">Комментарии
+            </button>
+            <div class="card-post__container-comments container-comments" id="comments">
+                <strong class="container-comments__title">Комментарии</strong>
+                <ul class="container-comments__comments-list">
+                    <li class="container-comments__comments-item comments-item"
+                          v-for="comment in commentsArray"
+                          :key="comment">
+                        <img src="@/assets/img/avatar.png" alt="avatar"
+                             class="comments-item__avatar">
+                        <strong class="comments-item__title-name"> {{ name }} </strong>
+                        <p class="comments-item__text-comment">{{ comment }}</p>
+                    </li>
+                </ul>
+                <input v-on:change="addComment" class="container-comments__form-comment form-control"
+                       type="text" placeholder="Напишите ваш комментарий...">
             </div>
+            <button type="button" class="card-post__button-complaint btn btn-danger"
+                v-on:click="showComplaint">Пожаловаться на пост</button>
+            <form action="#" class="card-post__form-complaint form-complaint">
+                <strong class="form-complaint__title">Выберите причину жалобы</strong>
+                <label for="complaintReasons" class="form-complaint__container-reasons">
+                    <input type="radio" name="complaintReasons">
+                    Контент сексуального характера <br>
+                    <input type="radio" name="complaintReasons">
+                    Жестокие сцены <br>
+                    <input type="radio" name="complaintReasons">
+                    Оскорбления <br>
+                    <input type="radio" name="complaintReasons">
+                    Пропоганда
+                </label>
+                <input type="submit" class="form-complaint__button-submit btn btn-outline-danger">
+            </form>
         </div>
     </div>
 </template>
@@ -25,25 +54,37 @@ export default {
     data() {
         return {
             likes: 0,
+            commentsArray: []
         }
+    },
+    props: {
+        name
     },
     methods: {
         likePost(event) {
-            event.target.classList.remove('btn-outline-danger');
-            event.target.classList.add('btn-danger');
+            if (event.target.className.includes('btn-outline-danger')) {
+                event.target.classList.remove('btn-outline-danger');
+                event.target.classList.add('btn-danger');
 
-            this.likes +=1;
-
-            event.target.addEventListener('click', event => {
-                this.likes -= 1;
-
+                this.likes += 1;
+            } else {
                 event.target.classList.remove('btn-danger');
                 event.target.classList.add('btn-outline-danger');
-            }, { once: true })
+
+                this.likes -= 1;
+            }
         },
         showComments(event) {
             const commentsContainer = event.target.parentElement.querySelector('.card-post__container-comments');
             commentsContainer.classList.toggle('show');
+        },
+        addComment(event) {
+            this.commentsArray.push(event.target.value);
+            event.target.value = '';
+        },
+        showComplaint(){
+            const complaintForm = document.querySelector('.card-post__form-complaint');
+            complaintForm.classList.toggle('show');
         }
     }
 }

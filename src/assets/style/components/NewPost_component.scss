@@ -38,10 +38,12 @@
 
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 50px auto;
+    grid-template-rows: 50px auto 70px auto;
     grid-template-areas:
       'like comment'
-      'comments comments';
+      'comments comments'
+      'outline outline'
+      'outlineForm outlineForm';
 
     align-items: center;
     justify-items: center;
@@ -51,6 +53,11 @@
 
       width: 65%;
       height: 85%;
+
+      position: relative;
+      &:active{
+        top: 2px;
+      }
     }
 
     .card-post__button-comment{
@@ -58,14 +65,112 @@
 
       width: 65%;
       height: 85%;
+
+      position: relative;
+      &:active{
+        top: 2px;
+      }
     }
 
     .card-post__container-comments{
       grid-area: comments;
 
+      width: 100%;
+
+      flex-direction: column;
+
       display: none;
       &.show{
-        display: block;
+        display: flex;
+      }
+
+      .container-comments__title{
+        font-size: 1.7rem;
+        text-align: center;
+
+        padding: 10px;
+
+        border-bottom: 1px solid #000;
+      }
+
+      .container-comments__form-comment{
+        margin-top: 10px;
+      }
+
+      .container-comments__comments-list{
+        list-style: none;
+
+        .container-comments__comments-item {
+          margin-top: 7px;
+
+          font-size: 1.4rem;
+
+          display: grid;
+          grid-template-columns: 80px auto;
+          grid-template-rows: 1fr 1fr;
+          grid-template-areas:
+            'logo name'
+            'logo comment';
+
+          align-items: center;
+
+          .comments-item__avatar{
+            grid-area: logo;
+          }
+
+          .comments-item__title-name{
+            grid-area: name;
+          }
+
+          .comments-item__text-comment{
+            grid-area: comment;
+          }
+        }
+      }
+    }
+
+    .card-post__button-complaint{
+      grid-area: outline;
+
+      position: relative;
+      &:active{
+        top: 2px;
+      }
+    }
+
+    .card-post__form-complaint{
+      display: none;
+
+      &.show{
+        display: flex;
+      }
+
+      grid-area: outlineForm;
+
+      flex-direction: column;
+
+      .form-complaint__title{
+        text-align: center;
+        font-size: 1.7rem;
+
+        padding: 10px;
+
+        border-bottom: 1px solid #000;
+      }
+
+      .form-complaint__container-reasons{
+        padding: 10px;
+      }
+
+      .form-complaint__button-submit{
+        align-self: center;
+
+        width: 40%;
+
+        position: relative;
+        &:active{
+          top: 2px;
+        }
       }
     }
   }

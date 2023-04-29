@@ -5,6 +5,8 @@
             <img class="profile-card__image"
                  src="https://plus.unsplash.com/premium_photo-1661274050137-edc61fa89ffc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cmFuZG9tfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
                  alt="">
+            <input type="file" class="profile-card__select-image"
+                   v-on:change="imageLoad" accept="image/jpeg, image/png, image/jpg">
             <div class="profile-card__container-about container-about">
                 <h2 class="container-about__title-name">{{ name }}</h2>
                 <input v-model="name" type="text" class="container-about__form-changeName form-control">
@@ -333,8 +335,9 @@
                     <option value="Ялта">Ялта</option>
                     <option value="Ярославль">Ярославль</option>
                 </select>
-                <p class="container-about__text-description">{{description}}</p>
-                <textarea v-model="description" cols="10" rows="10" class="container-about__form-changeDescription form-control"></textarea>
+                <p class="container-about__text-description">{{ description }}</p>
+                <textarea v-model="description" cols="10" rows="10"
+                          class="container-about__form-changeDescription form-control"></textarea>
                 <button type="button" class="container-about__button-edit btn btn-outline-primary"
                         v-on:click="editAccount">Изменить аккаунт
                 </button>
@@ -348,11 +351,11 @@
                 </router-link>
             </div>
             <div class="posts-card__container-posts">
-                <NewPost/>
-                <NewPost/>
-                <NewPost/>
-                <NewPost/>
-                <NewPost/>
+                <NewPost v-bind:name="name"/>
+                <NewPost v-bind:name="name"/>
+                <NewPost v-bind:name="name"/>
+                <NewPost v-bind:name="name"/>
+                <NewPost v-bind:name="name"/>
             </div>
         </div>
     </div>
@@ -376,7 +379,10 @@ export default {
             const nameTitleElement = document.querySelector('.container-about__title-name');
             const townTitleElement = document.querySelector('.container-about__title-town');
             const descriptionTextElement = document.querySelector('.container-about__text-description');
+            const imageElement = document.querySelector('.profile-card__image');
 
+
+            const imageSelectForm = document.querySelector('.profile-card__select-image');
             const formNameField = document.querySelector('.container-about__form-changeName');
             const formSelectTown = document.querySelector('.container-about__form-selectTown');
             const formDescriptionField = document.querySelector('.container-about__form-changeDescription');
@@ -386,11 +392,14 @@ export default {
                 townTitleElement.style.display = 'none';
                 descriptionTextElement.style.display = 'none';
 
+                imageElement.classList.add('edit-image');
+
                 event.target.innerHTML = 'Подтвердить изменения';
 
                 formNameField.style.display = 'block';
                 formSelectTown.style.display = 'block';
                 formDescriptionField.style.display = 'block';
+                imageSelectForm.style.display = 'block';
 
                 formNameField.value = nameTitleElement.innerHTML;
                 formDescriptionField.value = descriptionTextElement.innerHTML;
@@ -400,12 +409,22 @@ export default {
                 townTitleElement.style.display = 'block';
                 descriptionTextElement.style.display = 'block';
 
+                imageElement.classList.remove('edit-image');
+
                 event.target.innerHTML = 'Изменить аккаунт';
 
                 formNameField.style.display = 'none';
                 formSelectTown.style.display = 'none';
                 formDescriptionField.style.display = 'none';
+                imageSelectForm.style.display = 'none';
             }
+        },
+        imageLoad(event) {
+            const file = event.target.files[0];
+            const urlFile = URL.createObjectURL(file);
+            const imageElement = document.querySelector('.profile-card__image');
+
+            imageElement.src = urlFile;
         }
     }
 }
