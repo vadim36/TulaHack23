@@ -2,16 +2,21 @@
     <div class="wrapper-startPage">
         <div class="container">
             <h1 class="title">Жду</h1>
-            <button type="button" class="btn btn-lg btn-outline-dark button-pass" @click="$router.push({name: 'main page'})">
-                Войти
-            </button>
-            <button type="button" class="btn btn-lg btn-outline-dark button-pass">
-                Регистрация
-            </button>
+            <div class="container-buttons">
+                <button type="button" class="button-login btn btn-lg btn-outline-dark button-pass"
+                        @click="$router.push({name: 'login page'})">
+                    войти
+                </button>
+                <button type="button" class="button-register btn btn-lg btn-outline-dark button-pass"
+                        @click="$router.push({name: 'register page'})">
+                    зарегистрироваться
+                </button>
+            </div>
         </div>
         <blockquote class="text-quotes">
-            {{ arrQuotes[Math.floor(Math.random() * arrQuotes.length )] }}
+            {{ arrQuotes[Math.floor(Math.random() * arrQuotes.length)] }}
         </blockquote>
+        <img class="background-image" src="../assets/img/backgroundMap.png" alt="background Russia map">
     </div>
 </template>
 

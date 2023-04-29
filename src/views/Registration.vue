@@ -3,16 +3,23 @@
         <h1 class="card-register__title">Зарегистрироваться</h1>
         <form action="#" class="card-register__form-register form-register">
             <input type="text" name="nameForm" placeholder="Введите ваше имя..."
-                   class="form-register__field-name form-control">
+                   class="form-register__field-name form-control" v-model="name">
+            {{ nameError }}
             <input type="email" inputmode="email" name="emailForm"
                    placeholder="Введите ваш email..."
-                   class="form-register__field-email form-control">
+                   class="form-register__field-email form-control"
+                   v-model="email">
+            {{ emailError }}
             <input type="password" name="passwordForm"
                    placeholder="Введите ваш пароль..."
-                   class="form-register__field-password form-control">
+                   class="form-register__field-password form-control" min="6"
+                   v-model="password">
+            {{ passwordError }}
             <input type="password" name="passwordFormRepeat"
                    placeholder="Повторите пароль..."
-                   class="form-register__field-password-repeat form-control">
+                   class="form-register__field-password-repeat form-control" min="6"
+                   v-model="passwordRepeat">
+            {{ passwordRepeatError }}
             <label for="selectTownForm" class="form-register__select-label">Выберите Ваш Город:</label>
             <select class="form-register__select-town form-select">
                 <option value="Москва">Москва</option>
@@ -345,10 +352,51 @@
 </template>
 <script>
 export default {
+    data() {
+        return {
+            name: '',
+            email: '',
+            password: '',
+            passwordRepeat: '',
+            nameError: null,
+            emailError: null,
+            passwordError: null,
+            passwordRepeatError: null
+        }
+    },
     methods: {
-        submitForm(){
+        submitForm() {
             const registrationForm = document.querySelector('.card-register__form-register');
-            registrationForm.submit();
+
+            if (!this.name) {
+                this.nameError = `Поле "имя" обязательно к заполнению`
+            } else {
+                this.nameError = null;
+            }
+
+            const EMAIL_REGEXP = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
+            if (!(EMAIL_REGEXP.test(this.email))) {
+                this.emailError = 'Электронная почта записана в неправильном формате или вообще не записана';
+            } else {
+                this.emailError = null;
+            }
+
+            if (!this.password) {
+                this.passwordError = 'Поле обязательно для заполнения'
+            } else {
+                this.passwordError = null;
+            }
+
+            if (!this.passwordRepeat) {
+                this.passwordRepeatError = 'Поле обязательно для заполнения';
+            } else {
+                this.passwordRepeatError = null;
+            }
+
+            if (this.nameError === null && this.emailError === null
+                && this.passwordError === null && this.passwordRepeatError === null) {
+                registrationForm.submit();
+            }
         }
     }
 }

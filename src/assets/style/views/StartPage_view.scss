@@ -44,14 +44,60 @@
       animation-duration: 1.5s;
 
       font-family: 'Christopher', sans-serif;
+
+      z-index: 2;
     }
   }
 
-  .button-pass {
-    position: relative;
+  .container-buttons{
+    width: 100%;
 
-    &:active {
-      top: 2px;
+    display: flex;
+    flex-direction: row-reverse;
+
+    justify-content: center;
+
+    .button-login,
+    .button-register{
+      height: 55px;
+
+      z-index: 2;
+
+      position: relative;
+
+      font-size: 2rem;
+      text-transform: capitalize;
+      text-decoration: underline;
+
+      transition: 0.35s ease-in-out;
+
+      &:hover{
+        color: #000;
+        transform: scale(1.05);
+      }
+
+      &:active{
+        top: 2px;
+
+        color: #fff;
+      }
+    }
+
+    .button-login{
+      margin-left: 37px;
+
+      width: 25%;
+
+      background: #E8C0C0;
+      font-weight: 700;
+
+      text-decoration: none;
+    }
+
+    .button-register{
+      background: #FFF5F5;
+
+      font-weight: 700;
     }
   }
 
@@ -64,6 +110,8 @@
 
     padding: 20px 50px;
 
+    z-index: 2;
+
     &:before {
       content: '«';
     }
@@ -71,5 +119,13 @@
     &:after {
       content: '»';
     }
+  }
+
+  .background-image{
+    position: absolute;
+
+    top: -20px;
+
+    z-index: 1;
   }
 }
